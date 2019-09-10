@@ -6,6 +6,7 @@ var Interval;
 var minutes = document.getElementById("minutes");
 var seconds = document.getElementById("seconds");
 var miliseconds = document.getElementById("miliseconds");
+var table = document.getElementById("users");
 var m = 0;
 var s = 0;
 var ms = 0;
@@ -45,6 +46,7 @@ function NewPlayer() {
 
   /* Push all the arrays */
   stopwatches.push({ min: watch.min, sec: watch.sec, msec: watch.msec });
+
   players.push({
     name: Nplayer.name,
     laps: Nplayer.laps,
@@ -71,7 +73,6 @@ function NewPlayer() {
 
 /* List all players */
 function listplayers() {
-  var table = document.getElementById("users");
   table.innerHTML = "<td></td><td></td><td></td><td></td><td></td>";
   for (var i = 0; i < players.length; i++) {
     table.innerHTML +=
@@ -122,7 +123,7 @@ function timer() {
       m++;
     }
   }
-
+  /* Show in template */
   if (m <= 9) {
     minutes.innerHTML = "0" + m;
   } else {
@@ -140,10 +141,24 @@ function timer() {
   } else {
     miliseconds.innerHTML = ms;
   }
+  /* end show */
+  /* adding time to array */
+  stopwatches.forEach(function(element) {
+    element.msec++;
+    if (element.msec > 99) {
+      element.msec = 0;
+      element.sec += 1;
+      if (element.sec > 59) {
+        element.sec = 0;
+        element.min += 1;
+      }
+    }
+  });
 } /* end function */
 
 /* Get times of a player */
 function getTimes(player) {
+  console.log("stopwatch: ", stopwatches[player]);
   /* add time to the player */
   players[player].lastlap.min = stopwatches[player].min;
   players[player].lastlap.sec = stopwatches[player].sec;
@@ -161,6 +176,7 @@ function getLap(player) {
   players[player].laps++;
   getBestLap(player);
   getWorstLap(player);
+  showResults();
 } /* end function */
 
 /* Get the best lap time */
@@ -212,6 +228,76 @@ function getWorstLap(player) {
   }
   console.log(players[player].worstlap);
 } /* end function */
+/* --------------------------------------------------------------------------------------
+    FUNCTIONS - Show Results
+-------------------------------------------------------------------------------------- */
+function showResults() {
+  for (var i = 0; i < players.length; i++) {
+    if (i == 0) {
+      table.innerHTML =
+        "<tr><td><button class='btn btn-warning' onClick='getTimes(" +
+        i +
+        ")'> " +
+        players[i].name +
+        "</button></td>" +
+        "<td>" +
+        players[i].laps +
+        "</td>" +
+        "<td>" +
+        players[i].lastlap.min +
+        ":" +
+        players[i].lastlap.sec +
+        ":" +
+        players[i].lastlap.msec +
+        "</td>" +
+        "<td>" +
+        players[i].bestlap.min +
+        ":" +
+        players[i].bestlap.sec +
+        ":" +
+        players[i].bestlap.msec +
+        "</td>" +
+        "<td>" +
+        players[i].worstlap.min +
+        ":" +
+        players[i].worstlap.sec +
+        ":" +
+        players[i].worstlap.msec +
+        "</td></tr>";
+    } else {
+      table.innerHTML +=
+        "<tr><td><button class='btn btn-warning' onClick='getTimes(" +
+        i +
+        ")'> " +
+        players[i].name +
+        "</button></td>" +
+        "<td>" +
+        players[i].laps +
+        "</td>" +
+        "<td>" +
+        players[i].lastlap.min +
+        ":" +
+        players[i].lastlap.sec +
+        ":" +
+        players[i].lastlap.msec +
+        "</td>" +
+        "<td>" +
+        players[i].bestlap.min +
+        ":" +
+        players[i].bestlap.sec +
+        ":" +
+        players[i].bestlap.msec +
+        "</td>" +
+        "<td>" +
+        players[i].worstlap.min +
+        ":" +
+        players[i].worstlap.sec +
+        ":" +
+        players[i].worstlap.msec +
+        "</td></tr>";
+    }
+  }
+}
 
 /* --------------------------------------------------------------------------------------
     FUNCTIONS - Start/End
