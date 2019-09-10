@@ -23,22 +23,27 @@
         </thead>
         <tbody id="users"></tbody>
       </table>
-
-
-      <div class="row">
-        <input id="player" type="new player">
-        <button class="btn btn-primary" onclick="NewPlayer()">Add Player</button>
-      </div>
-      
-
-
-
-
-
-
-
-
-
+      <table>
+        <tbody id="items">
+          <div class="row col-112">
+            <div class="col-5">
+              <input id="player" type="new player">
+              <button class="btn btn-primary" onclick="NewPlayer()">Add Player</button>
+            </div>
+            <div class="col-3">
+              <button class="btn btn-success" onclick="start()">Start Race</button>
+              <button class="btn btn-danger" onclick="end()">End Race</button>
+            </div>
+            
+            <div class="col-3">
+              <label id="minutes">00</label>:
+              <label id="seconds">00</label>:
+              <label id="miliseconds">00</label>
+            </div>
+            
+          </div>
+        </tbody>
+      </table>
 
 
     </div>
