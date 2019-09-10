@@ -304,7 +304,28 @@ function showResults() {
     }
   }
 }
+/* when we restart the race the times will reset */
+function resetTimes() {
+  for (var i = 0; i < players.length; i++) {
+    players[i].lap = 0;
+    players[i].totaltime.min = 0;
+    players[i].totaltime.sec = 0;
+    players[i].totaltime.msec = 0;
+    players[i].lastlap.min = 0;
+    players[i].lastlap.sec = 0;
+    players[i].lastlap.msec = 0;
+    players[i].bestlap.min = 0;
+    players[i].bestlap.sec = 0;
+    players[i].bestlap.msec = 0;
+    players[i].worstlap.min = 0;
+    players[i].worstlap.sec = 0;
+    players[i].worstlap.msec = 0;
 
+    stopwatches[i].min = 0;
+    stopwatches[i].sec = 0;
+    stopwatches[i].msec = 0;
+  }
+}
 /* --------------------------------------------------------------------------------------
     FUNCTIONS - Start/End
 -------------------------------------------------------------------------------------- */
@@ -319,6 +340,7 @@ function start() {
     ms = 0;
     s = 0;
     m = 0;
+    resetTimes();
     raceStart = true;
     clearInterval(Interval);
     Interval = setInterval(timer, 10);
