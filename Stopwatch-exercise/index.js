@@ -50,6 +50,11 @@ function NewPlayer() {
   players.push({
     name: Nplayer.name,
     laps: Nplayer.laps,
+    totaltime: {
+      min: m,
+      sec: s,
+      msec: ms
+    },
     lastlap: {
       min: Nplayer.lastLap.min,
       sec: Nplayer.lastLap.sec,
@@ -228,6 +233,7 @@ function getWorstLap(player) {
   }
   console.log(players[player].worstlap);
 } /* end function */
+
 /* --------------------------------------------------------------------------------------
     FUNCTIONS - Show Results
 -------------------------------------------------------------------------------------- */
