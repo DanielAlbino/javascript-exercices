@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <title>Show time</title>
+  </head>
+  <body>
+    <p id="time"></p>
+    <script>
+      var time = document.getElementById("time");
+      var d = new Date();
+      time.innerHTML =
+        "Current Time is: " +
+        d.getHours() +
+        " PM : " +
+        d.getMinutes() +
+        " : " +
+        d.getSeconds();
+    </script>
+  </body>
+</html>

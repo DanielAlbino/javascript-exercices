@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Reverse the order of the bits in a given integer</title>
+  </head>
+
+  <body>
+    <script>
+      function mirror_bits(n) {
+        return parseInt(
+          n
+            .toString(2)
+            .split("")
+            .reverse()
+            .join(""),
+          2
+        );
+      }
+
+      console.log(mirror_bits(56));
+      console.log(mirror_bits(234));
+    </script>
+  </body>
+</html>

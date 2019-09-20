@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Find the types of a specified array</title>
+  </head>
+
+  <body>
+    <script>
+      function angle_Type(angle) {
+        if (angle < 90) {
+          return "Acute angle.";
+        }
+        if (angle === 90) {
+          return "Right angle.";
+        }
+        if (angle < 180) {
+          return "Obtuse angle.";
+        }
+        return "Straight angle.";
+      }
+
+      console.log(angle_Type(47));
+      console.log(angle_Type(90));
+      console.log(angle_Type(145));
+      console.log(angle_Type(180));
+    </script>
+  </body>
+</html>
