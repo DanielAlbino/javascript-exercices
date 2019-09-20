@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Returns a passed string with letters in alphabetical order</title>
+  </head>
+
+  <body>
+    <script>
+      function alphabet_order(str) {
+        return str
+          .split("")
+          .sort()
+          .join("");
+      }
+      console.log(alphabet_order("webmaster"));
+    </script>
+  </body>
+</html>

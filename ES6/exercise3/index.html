@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Split values into two groups with condition</title>
+  </head>
+
+  <body>
+    <script>
+      //#Source https://bit.ly/2neWfJ2
+      const bifurcate = (arr, filter) =>
+        arr.reduce((acc, val, i) => (acc[filter[i] ? 0 : 1].push(val), acc), [
+          [],
+          []
+        ]);
+      console.log(
+        bifurcate(["beep", "boop", "foo", "bar"], [true, true, false, true])
+      );
+    </script>
+  </body>
+</html>
