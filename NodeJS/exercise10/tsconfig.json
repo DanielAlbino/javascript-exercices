@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "es5" /* specifies the ecmascript version to target, which determines the language features to support.  */,
+    "module": "commonjs" /* specifies the module system to transpile to. In node, that's going to be commonjs. */,
+    "outDir": "./dist",
+    "strict": true,
+    "baseUrl": "./" /* Base directory to resolve non-absolute module names */,
+    "typeRoots": [
+      "node_modules/@types"
+    ] /* List of directories that contains type definitions */,
+    "types": [
+      "node"
+    ] /* This tells typescript what declaration files to include in compilation */,
+    "esModuleInterop": true,
+    "inlineSourceMap": true
+  }
+}
