@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sort items in array</title>
+  </head>
+  <body>
+    <script>
+      /*
+             Write a JavaScript program to sort the items of an array.
+             */
+      var array1 = [-3, 8, 7, 5, 2, -1, 3, 4];
+      var array2 = [];
+      var min = array1[0];
+      var pos;
+      var max = array1[0];
+
+      for (var i = 0; i < array1.length; i++) {
+        if (max < array1[i]) {
+          max = array1[i];
+        }
+      }
+      for (var i = 0; array1.length; i++) {
+        for (var x = 0; x < array1.length; x++) {
+          if (array1[x] != "x") {
+            if (min > array1[i]) {
+              min = array1[x];
+              pos = x;
+            }
+          }
+        }
+        array2[i] = min;
+        array1[pos] = "x";
+        min = max;
+      }
+      document.write(array2);
+    </script>
+  </body>
+</html>

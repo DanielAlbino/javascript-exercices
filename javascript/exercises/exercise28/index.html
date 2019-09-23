@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Check input is array</title>
+  </head>
+  <body>
+    <script>
+      /* 
+            Write a JavaScript function to check whether an `input` is an array or not.
+            Test Data :
+            document.write(is_array('w3resource'));
+            document.write(is_array([1, 2, 4, 0]));
+            false
+            true
+        */
+      is_array = function(input) {
+        if (toString.call(input) === "[object Array]") {
+          return true;
+        }
+        return false;
+      };
+      document.write(is_array("DanielAlbino"));
+      document.write(is_array([1, 2, 3, 4, 5]));
+    </script>
+  </body>
+</html>
